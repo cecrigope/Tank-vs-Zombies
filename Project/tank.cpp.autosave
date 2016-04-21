@@ -1,0 +1,60 @@
+#include "tank.h"
+#include "bullet.h"
+#include "zombie.h"
+
+int dir = 0;
+
+void Tank::keyPressEvent(QKeyEvent *keyEvent){
+        //moving down
+        if(keyEvent->key()==Qt::Key_Down){
+            //checking to stay in screen
+            if(y() + 60 < scene()->height()){
+              setPos(x(),y()+10);
+              dir = 1;
+            }
+          }
+        //moving up
+         if(keyEvent->key()==Qt::Key_Up){
+             if(y() - 10 > 0){
+              setPos(x(),y()-10);
+              dir = 2;
+             }
+          }
+         //moving left
+         if(keyEvent->key()==Qt::Key_Left){
+             //checking to stay in screen
+             if(x() - 10 > 0){
+              setPos(x()-10,y());
+              dir = 3;
+             }
+          }
+         //moving right
+         if(keyEvent->key()==Qt::Key_Right){
+             //checking to stay in screen
+             if(x() + 60 < scene()->width()){
+              setPos(x()+10,y());
+              dir =  4;
+             }
+          }
+         //shootin bullets
+         if(keyEvent->key()==Qt::Key_Space){
+            //bullet spawning
+            Bullet *bullet = new Bullet();
+            if(dir == 1 || dir == 2){
+                bullet->setPos(x() + 20, y());
+            }
+            else {
+                bullet->setPos(x(), y() + 20);
+            }
+            scene()->addItem(bullet);
+        }
+
+}
+
+//spawning the zombies
+void Tank::spawn(){
+    Zombie *zombie = new Zombie;
+    scene()->addItem(zombie);
+}
+
+

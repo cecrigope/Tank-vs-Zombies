@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/soundEffects">
+        <file>bulletSound.mp3</file>
+        <file>zombieExplosion.mp3</file>
+    </qresource>
+</RCC>
