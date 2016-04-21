@@ -1,2 +1,2 @@
-# Tank-vs-Zombies
-Tank vs Zombies game
+# Tanks-vs-Zombies
+Tanks vs Zombies game
